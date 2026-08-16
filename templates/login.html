@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+<div style="display:flex;align-items:center;justify-content:center;padding:60px 20px;min-height:calc(100vh - 200px)">
+  <form class="card" method="post" style="width:380px">
+    <div style="text-align:center;margin-bottom:18px">
+      <div style="width:56px;height:56px;border-radius:14px;background:var(--grad);display:inline-grid;place-items:center;font-size:26px;box-shadow:0 10px 30px rgba(99,102,241,0.45)">🔐</div>
+      <h2 style="margin-top:14px">Welcome Back</h2>
+      <p class="muted" style="margin:0">Sign in to your DARK Vps panel</p>
+    </div>
+    {% if error %}<div style="background:rgba(239,68,68,0.15);color:#fca5a5;padding:11px;border-radius:10px;margin-bottom:12px;font-size:13px;border:1px solid rgba(239,68,68,0.3)">⚠ {{error}}</div>{% endif %}
+    <input name="username" placeholder="Username" autofocus required style="width:100%;margin-bottom:10px">
+    <input name="password" type="password" placeholder="Password" required style="width:100%;margin-bottom:14px">
+    <button class="btn btn-primary" style="width:100%;justify-content:center">Login →</button>
+    <p class="muted" style="text-align:center;margin:14px 0 0;font-size:12px">Owner & User accounts supported</p>
+  </form>
+</div>
+{% endblock %}
