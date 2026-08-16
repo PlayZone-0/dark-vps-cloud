@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="wrap">
+  <section style="text-align:center;padding:30px 0">
+    <h1>💎 <span class="gradient-text">Pricing</span> & Plans</h1>
+    <p class="muted">Pick a plan — pay the owner — get instant auto-login link.</p>
+  </section>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px">
+    {% for p in pricing.plans %}
+    <div class="card" style="text-align:center;{% if loop.index == 3 %}border:1px solid rgba(99,102,241,0.5);box-shadow:0 10px 40px rgba(99,102,241,0.25){% endif %}">
+      {% if loop.index == 3 %}<div class="badge" style="background:var(--grad);color:#fff;margin-bottom:10px">⭐ POPULAR</div>{% endif %}
+      <h3>{{p.name}}</h3>
+      <div style="font-size:40px;font-weight:800;margin:12px 0" class="gradient-text">{{pricing.currency}}{{p.price}}</div>
+      <div class="muted" style="margin-bottom:16px">{{p.duration}}</div>
+      <div style="font-size:14px;color:#c7cce8;min-height:70px">{{p.features}}</div>
+    </div>
+    {% endfor %}
+  </div>
+  {% if pricing.contact %}
+  <div class="card" style="margin-top:24px;text-align:center">
+    <h3>💬 How to Buy</h3>
+    <p class="muted">Contact the owner to purchase your plan:</p>
+    <p style="font-size:18px;font-weight:600">{{pricing.contact}}</p>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}
